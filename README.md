@@ -1,4 +1,4 @@
-# npm-why [![npm-version][npm-badge]][npm-link]
+# yarn-why [![npm-version][npm-badge]][npm-link]
 
 Identifies why a package has been installed.
 
