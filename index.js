@@ -5,9 +5,9 @@ const lockfile = require('@yarnpkg/lockfile')
  *
  * @param {String} lockContent content of yarn.lock
  * @param {String} target target package name
- * @param {Function} printer
+ * @param {String} root package name
  */
-module.exports = function (lockContent, name, printer) {
+module.exports = function (lockContent, name, rootName = '') {
   const tree = lockfile.parse(lockContent)
 
   if (tree.type !== 'success') {
@@ -18,10 +18,6 @@ module.exports = function (lockContent, name, printer) {
     x => parseNameVersion(x).name === name
   )
 
-  // console.log(JSON.stringify(tree, null, 2))
-  // console.log(Object.keys(tree.object))
-  // console.log(targets)
-
   // Find requiredBy for those targets
   const results = []
   targets.forEach(t => {
@@ -29,14 +25,10 @@ module.exports = function (lockContent, name, printer) {
   })
   return results.map(breadcrumbs => {
     return breadcrumbs.map(b => parseNameVersion(b))
+  }).map(breadcrumbs => {
+    breadcrumbs.push({name: rootName})
+    return breadcrumbs
   })
-  // return targets.reduce((accu, curr) => {
-  //   lookupDependents(curr, tree.object, [], accu)
-  //   return accu
-  // }, []).map(reasons => {
-  //
-  // })
-  // return results
 }
 
 function lookupDependents (target, root, breadcrumb = [], results) {

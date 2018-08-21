@@ -10,9 +10,15 @@ const why = require('./index.js')
  * @param {String} packageName The package to lookup
  */
 module.exports = function main (dir, packageName) {
+  let rootName = path.parse(dir).name
+  try {
+    rootName = require(path.join(dir, 'package.json')).name || rootName
+  } catch (e) {}
+
   const reasons = why(
     loadLockfile(dir, 'yarn.lock'),
-    packageName
+    packageName,
+    rootName
   )
 
   if (!reasons.length) {
