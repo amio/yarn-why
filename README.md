@@ -25,9 +25,8 @@ Examples
 
 ## License
 
-ISC @ Amio
+MIT @ Amio
 
-[screenshot]: ./npm-why-screenshot.png
 [amio-link]: https://github.com/amio
 [npm-badge]: https://badgen.net/npm/v/yarn-why
 [npm-link]: https://www.npmjs.com/package/yarn-why
