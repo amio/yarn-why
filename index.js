@@ -17,7 +17,6 @@ module.exports = function (lockContent, name, printer) {
   const targets = Object.keys(tree.object).filter(
     x => parseNameVersion(x).name === name
   )
-  console.log(targets)
 
   // console.log(JSON.stringify(tree, null, 2))
   // console.log(Object.keys(tree.object))

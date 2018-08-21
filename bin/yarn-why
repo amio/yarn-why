@@ -9,11 +9,11 @@ const help = `
 
   Usage
 
-    $ npm-why <package>
+    $ yarn-why <package>
 
   Examples
 
-    $ npm-why babel-core
+    $ yarn-why has
 `
 
 const args = mri(process.argv.slice(2), {
@@ -24,7 +24,7 @@ const args = mri(process.argv.slice(2), {
   }
 })
 
-if (args.help) {
+if (args.help || args._.length === 0) {
   console.info(help)
 } else if (args.version) {
   console.info(require('../package.json').version)
