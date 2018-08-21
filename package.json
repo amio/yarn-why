@@ -1,6 +1,6 @@
 {
   "name": "yarn-why",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Identifies why a package has been installed.",
   "repository": "amio/yarn-why",
   "bin": "bin/yarn-why",
