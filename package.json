@@ -1,0 +1,20 @@
+{
+  "name": "yarn-why",
+  "version": "0.1.0",
+  "description": "Identifies why a package has been installed.",
+  "repository": "amio/yarn-why",
+  "bin": "bin/yarn-why",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "standard"
+  },
+  "dependencies": {
+    "@yarnpkg/lockfile": "^1.0.2",
+    "kleur": "^2.0.1",
+    "mri": "^1.1.1"
+  },
+  "devDependencies": {
+    "standard": "^11.0.1"
+  }
+}

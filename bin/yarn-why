@@ -1,0 +1,35 @@
+#! /usr/bin/env node
+
+const mri = require('mri')
+const { bold } = require('kleur')
+const main = require('../cli-main.js')
+
+const help = `
+  ${bold('yarn-why')} - Identifies why a package has been installed.
+
+  Usage
+
+    $ npm-why <package>
+
+  Examples
+
+    $ npm-why babel-core
+`
+
+const args = mri(process.argv.slice(2), {
+  boolean: ['help', 'version'],
+  alias: {
+    h: 'help',
+    v: 'version'
+  }
+})
+
+if (args.help) {
+  console.info(help)
+} else if (args.version) {
+  console.info(require('../package.json').version)
+} else {
+  const dir = process.cwd()
+  const pkg = args._[0]
+  main(dir, pkg)
+}
