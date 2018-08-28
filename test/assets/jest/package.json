@@ -1,0 +1,7 @@
+{
+  "name": "jest",
+  "private": true,
+  "devDependencies": {
+    "babel-register": "^6.23.0"
+  }
+}
