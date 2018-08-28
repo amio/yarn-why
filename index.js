@@ -32,6 +32,8 @@ module.exports = function (lockContent, name, rootName = '') {
 }
 
 function lookupDependents (target, root, breadcrumb = [], results) {
+  if (breadcrumb.includes(target)) return // prevent recursive
+
   breadcrumb = breadcrumb.concat(target)
 
   const dependents = Object.entries(root).filter(([pkg, meta]) => {
