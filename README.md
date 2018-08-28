@@ -4,7 +4,8 @@ Identifies why a package has been installed.
 
 __Difference to `yarn why`__
 
-- Read from `yarn.lock` locally (no network request), lightning fast.
+- Full requiring path (`yarn why` only list direct dependents).
+- Read from `yarn.lock` locally (no network request), blazing fast.
 - Simpler output, consistent with [`npm-why`](https://www.npmjs.com/package/npm-why).
 
 ## Install & Usage
@@ -20,7 +21,7 @@ Usage
 
 Examples
 
-  $ yarn-why babel-core
+  $ yarn-why chalk
 ```
 
 ## Related

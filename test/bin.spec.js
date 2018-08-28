@@ -12,16 +12,26 @@ tap.test('runs `--version`', async t => {
   t.is(stdout, packageJson.version, 'output version.')
 })
 
-tap.test('runs `chalk`', async t => {
-  const { stdout } = await cli(['mri', '--noir'], { cwd: __dirname })
-  t.is(stdout.trim(), `Who required mri:
-
-  test > npm-why > mri@^1.1.1`, 'output correct result.')
+tap.test('Exit 1 if no <package-name> provided', async t => {
+  const { code, stderr } = await cli([], { 'reject': false })
+  t.is(code, 1, 'exit code 1')
+  t.matchSnapshot(stderr, 'stderr', 'output hint to stderr.')
 })
 
-// Issue #1
-tap.test('Exit 1 if no <package-name> provided', async t => {
-  const { code, stderr } = await cli(['--noir'], { 'reject': false })
-  t.is(code, 1, 'exit code 1')
-  t.is(stderr.trim(), 'ERROR A <package-name> is required.', 'output hint.')
+tap.test('find `mri` in npm-why', async t => {
+  const cwd = path.join(__dirname, 'assets/npm-why')
+  const { stdout } = await cli(['mri'], { cwd })
+  t.matchSnapshot(stdout, 'stdout')
+})
+
+tap.test('find `chalk` in npm-why', async t => {
+  const cwd = path.join(__dirname, 'assets/npm-why')
+  const { stdout } = await cli(['chalk'], { cwd })
+  t.matchSnapshot(stdout, 'stdout')
+})
+
+tap.test('find `chalk` in jest', async t => {
+  const cwd = path.join(__dirname, 'assets/jest')
+  const { stdout } = await cli(['chalk'], { cwd })
+  t.matchSnapshot(stdout, 'stdout')
 })

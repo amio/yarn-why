@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "pretest": "standard",
+    "snap": "TAP_SNAPSHOT=1 tap test/*.spec.js",
     "test": "tap test/*.spec.js --reporter spec"
   },
   "dependencies": {
