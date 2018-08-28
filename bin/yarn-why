@@ -17,7 +17,7 @@ const help = `
 `
 
 const args = mri(process.argv.slice(2), {
-  boolean: ['help', 'version', 'noir'],
+  boolean: ['help', 'version'],
   alias: {
     h: 'help',
     v: 'version'
@@ -29,11 +29,9 @@ if (args.help) {
 } else if (args.version) {
   console.info(require('../package.json').version)
 } else if (args._.length === 0) {
-  kleur.enabled = !args.noir
   console.error(`\n  ${kleur.red('ERROR')} A <package-name> is required.`)
   process.exitCode = 1
 } else {
-  kleur.enabled = !args.noir
   const dir = process.cwd()
   const pkg = args._[0]
   main(dir, pkg)
