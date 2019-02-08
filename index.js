@@ -26,7 +26,7 @@ module.exports = function (lockContent, name, rootName = '') {
   return results.map(breadcrumbs => {
     return breadcrumbs.map(b => parseNameVersion(b))
   }).map(breadcrumbs => {
-    breadcrumbs.push({name: rootName})
+    breadcrumbs.push({ name: rootName })
     return breadcrumbs
   })
 }
