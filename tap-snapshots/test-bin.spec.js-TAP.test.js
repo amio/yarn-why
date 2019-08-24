@@ -7,30 +7,29 @@
 'use strict'
 exports[`test/bin.spec.js TAP Exit 1 if no <package-name> provided > stderr 1`] = `
 
-  [31mERROR[39m A <package-name> is required.
-
+  ERROR A <package-name> is required.
 `
 
-exports[`test/bin.spec.js TAP find \`mri\` in npm-why > stdout 1`] = `
+exports[`test/bin.spec.js TAP find \`chalk\` in jest > stdout 1`] = `
 
-  Who required [34mmri[39m:
+  Who required chalk:
 
-  [34mnpm-why[39m > [34mnpm-why[39m > [34mmri[39m[2m@^1.1.1[22m
+  jest > babel-register > babel-core > babel-code-frame > chalk@^1.1.3
+  jest > babel-register > babel-core > babel-helpers > babel-template > babel-traverse > babel-code-frame > chalk@^1.1.3
+  jest > babel-register > babel-core > babel-template > babel-traverse > babel-code-frame > chalk@^1.1.3
+  jest > babel-register > babel-core > babel-traverse > babel-code-frame > chalk@^1.1.3
 
 `
 
 exports[`test/bin.spec.js TAP find \`chalk\` in npm-why > stdout 1`] = `
 
-  No one requires [34mchalk[39m.
+  No one requires chalk.
 `
 
-exports[`test/bin.spec.js TAP find \`chalk\` in jest > stdout 1`] = `
+exports[`test/bin.spec.js TAP find \`mri\` in npm-why > stdout 1`] = `
 
-  Who required [34mchalk[39m:
+  Who required mri:
 
-  [34mjest[39m > [34mbabel-register[39m > [34mbabel-core[39m > [34mbabel-code-frame[39m > [34mchalk[39m[2m@^1.1.3[22m
-  [34mjest[39m > [34mbabel-register[39m > [34mbabel-core[39m > [34mbabel-helpers[39m > [34mbabel-template[39m > [34mbabel-traverse[39m > [34mbabel-code-frame[39m > [34mchalk[39m[2m@^1.1.3[22m
-  [34mjest[39m > [34mbabel-register[39m > [34mbabel-core[39m > [34mbabel-template[39m > [34mbabel-traverse[39m > [34mbabel-code-frame[39m > [34mchalk[39m[2m@^1.1.3[22m
-  [34mjest[39m > [34mbabel-register[39m > [34mbabel-core[39m > [34mbabel-traverse[39m > [34mbabel-code-frame[39m > [34mchalk[39m[2m@^1.1.3[22m
+  npm-why > npm-why > mri@^1.1.1
 
 `

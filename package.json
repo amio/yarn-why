@@ -7,9 +7,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "pretest": "standard",
-    "snap": "TAP_SNAPSHOT=1 tap test/*.spec.js",
-    "test": "tap test/*.spec.js --reporter spec"
+    "pretest": "standard *.js bin/*",
+    "snap": "TAP_SNAPSHOT=1 npm run test",
+    "test": "tap test/*.spec.js --reporter spec --test-env=FORCE_COLOR=0"
   },
   "dependencies": {
     "@yarnpkg/lockfile": "^1.1.0",

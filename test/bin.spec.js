@@ -13,9 +13,9 @@ tap.test('runs `--version`', async t => {
 })
 
 tap.test('Exit 1 if no <package-name> provided', async t => {
-  const { code, stderr } = await cli([], { 'reject': false })
-  t.is(code, 1, 'exit code 1')
-  t.matchSnapshot(stderr, 'stderr', 'output hint to stderr.')
+  const { exitCode, stderr } = await cli([], { reject: false })
+  t.is(exitCode, 1, 'exit code 1')
+  t.matchSnapshot(stderr, 'stderr')
 })
 
 tap.test('find `mri` in npm-why', async t => {
